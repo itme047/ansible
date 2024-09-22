@@ -1,0 +1,6 @@
+---
+- name: Backup Database and Copy to Remote Machines
+  hosts: database_server
+  tasks:
+    - name: Run backup script
+      script: /home/erp-bakcups/backup.sh
