@@ -3,4 +3,10 @@
   hosts: database_server
   tasks:
     - name: Run backup script
-      script: /home/erp-bakcups/backup.sh
+      script: /home/db/erp-backups/backup.sh
+
+    - name: Create cron job for backup script
+      cron:
+        name: "Database Backup"
+        minute: "*/30"
+        job: "/home/db/erp-backups/backup.sh"
